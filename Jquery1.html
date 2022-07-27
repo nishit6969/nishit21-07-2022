@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>JQUERY 1</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			
+			$(document).ready(function(){
+			
+				$("#AbcShow").attr("disabled",true);
+			
+				$("#AbcHide").click(function(){
+					if(confirm("Are you agree with this...!!!!!"))
+					{
+						$("#MyDiv").hide(2000);
+						$(this).attr("disabled",true);
+						$("#AbcShow").attr("disabled",false);
+						$("#AbcToggle").text("Show");
+					}
+				});
+				$("#AbcShow").click(function(){
+					if(confirm("Are you agree with this...!!!!!"))
+					{
+						$("#MyDiv").show(2000);
+						$(this).attr("disabled",true);
+						$("#AbcHide").attr("disabled",false);
+						$("#AbcToggle").text("Hide");
+					}
+				});
+				$("#AbcToggle").click(function(){
+					if(confirm("Are you agree with this...!!!!!"))
+					{
+						$("#MyDiv").toggle(2000);
+						($(this).text()=="Hide")
+						?($(this).text("Show"),$("#BtnHide").attr("disabled",true),$("#BtnShow").attr("disabled",false))
+						:($(this).text("Hide"),$("#BtnHide").attr("disabled",false),$("#BtnShow").attr("disabled",true));
+					}
+				});
+				$("#AbcPlus").click(function(){
+					var ABCD=parseInt($("#MyDiv").css("height"));
+					if(ABCD<=500)
+					{
+						ABCD+=20;
+						$("#MyDiv").css("height",ABCD);
+						$("#MyDiv").css("width",ABCD);
+					}
+					else{
+						alert("More 600px is not possible.");
+					}
+				});
+				$("#AbcMinus").click(function(){
+					var ABCD=parseInt($("#MyDiv").css("height"));
+					if(ABCD>=220)
+					{
+						ABCD-=20;
+						$("#MyDiv").css("height",ABCD);
+						$("#MyDiv").css("width",ABCD);
+					}
+					else{
+						alert("Less 280px is not possible.");
+					}
+				});
+			});
+		
+		</script>
+		
+	</head>
+    <body bgcolor="pink">
+        <h1 align="center"><font color="red"> Circle Slide Show </font></h1><hr/> 
+		<div id="MyDiv" style="height:300px;width:300px;background-color:rgb(32, 236, 13);border-radius: 200px;margin-left: 40%;">
+		
+		<h1 align="center"><font color="darkblue"> <BR/><BR/><BR/> JQUERY </font></h1>	
+		</div><hr/>
+		<center>
+		<h2 align="center"><font color="black"> REQUIREMENT ACCOEDING YOU HAVE TO SELECT YOUR PROPER BUTTON </font></h2>
+		<button id="AbcHide">Hide</button>&nbsp;&nbsp;<button id="AbcShow">Show</button><hr />
+        
+		<h2 align="center"><font color="blue"> HIDE</font></h2>
+		<button id="AbcToggle">Hide</button><hr />
+		
+		<h2 align="center"><font color="black"> + </font></h2>
+        <button id="AbcPlus" style="font-size:xx-large;"><b>+</b></button>&nbsp;&nbsp;
+		
+		<h2 align="center"><font color="black"> - </font></h2>
+		<button id="AbcMinus" style="font-size:xx-large;"><b>-</b></button><hr/>
+		</center>
+    </body>
+</html>
